@@ -1,10 +1,8 @@
 const mongoose = require('mongoose')
 
-// const Goal = require('./subModels/goal')
-const goalSchema = require('./subModels/goal')
-// const {Goal} = require(__dirname + '/subModels/goal.js')
-const Alarm = require('./subModels/alarm')
-const OnTime = require('./subModels/onTime')
+const goalSchema = require('./subModels/goal').schema
+const Alarm = require('./subModels/alarm').schema
+const OnTime = require('./subModels/onTime').schema
 
 const todoSchema = new mongoose.Schema( { 
 	title: {
@@ -12,14 +10,16 @@ const todoSchema = new mongoose.Schema( {
 		required: true
 	}, 
 	onDate: {
-		type: Date,
-		default: Date.now(),
-		required: true
-	},
-	alarm: Alarm,
+		// type: Date,
+		type: String
+		// ,default: Date.now()
+		// ,required: true
+	}
+	// ,
+	// alarm: Alarm,
 	// goal: Goal,	
-	goal: goalSchema,		 
-	time: OnTime
+	// goal: goalSchema,		 
+	// time: OnTime
 })
 
 module.exports = mongoose.model('Todo', todoSchema)

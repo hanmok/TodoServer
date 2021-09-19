@@ -1,14 +1,14 @@
-// const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
-// const achievedDatesSchema = new mongoose.Schema( { 
-// 	yearMonth: {
-// 		type: Number, 
-// 		required: true
-// 	}, 
-// 	dates: { 
-// 		type: [Number],
-// 		required: true
-// 	}
-// })
+const achievedDatesSchema = new mongoose.Schema( { 
+	yearMonth: {
+		type: Number, 
+		required: true
+	}, 
+	dates: { 
+		type: [Number],
+		required: true
+	}
+})
 
-// module.exports = mongoose.model('AchievedDates', achievedDatesSchema)
+module.exports = mongoose.model('AchievedDates', achievedDatesSchema)

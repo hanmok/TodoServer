@@ -1,12 +1,12 @@
-// const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
-// const goalSchema = new mongoose.Schema( { 
-// 	goalDuration: {
-// 		type: Number 
-// 	}, 
-// 	goalRep: { 
-// 		type: Number
-// 	}
-// })
+const goalSchema = new mongoose.Schema( { 
+	goalDuration: {
+		type: Number 
+	}, 
+	goalRep: { 
+		type: Number
+	}
+})
 
-// module.exports = mongoose.model('Goal', goalSchema)
+module.exports = mongoose.model('Goal', goalSchema)

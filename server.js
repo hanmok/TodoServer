@@ -19,14 +19,14 @@ mongoose.connection.once('open', () => {
 app.use(bodyParser.urlencoded({ extended: true}))
 
 
-
+// req.get("note"),
 app.route('/todos')
 	// .get('/', async (req, res) => {
 		.get(async (req, res) => {
 		try { 
 			const todos = await Todo.find()
 			res.json(todos)
-		} catch(err) { 
+		} catch(err) { w
 			res.status(500), json({message: err.message})
 		}
 		})
@@ -34,7 +34,9 @@ app.route('/todos')
 		.post( async (req, res) => {
 		const todo = new Todo ({
 			title: req.body.title, 
-			onDate: req.body.onDate, 
+			onDate: req.body.onDate
+			// title: req.get("title"),
+			// onDate: req.get("onDate")
 		})
 		try { 
 			const newTodo = await todo.save()
@@ -49,8 +51,9 @@ app.route('/todos')
 		if (req.body.title != null) { 
 			res.todo.title = req.body.title
 		}
-		res.todo.onDate =  req.body.onDate 
-	
+		if (req.body.onDate != null) { 
+			res.todo.onDate =  req.body.onDate 
+		}
 		try { 
 			const updatedTodo = await res.todo.save()
 			res.json(updatedTodo)
@@ -71,8 +74,8 @@ app.route('/todos')
 async function getTodo(req, res, next) { 
 	let todo 
 	try {
-		todo = await Todo.findById(req.params.id)
-		if (subscriber == null) { 
+		todo = await Todo2.findById(req.params.id)
+		if (todo == null) { 
 			return res.status(404).json({ message: "Cannot find todo"})
 		}
 	} catch (err) {

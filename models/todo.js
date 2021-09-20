@@ -1,13 +1,13 @@
 const mongoose = require('mongoose')
 
-const goalSchema = require('./subModels/goal').schema
-const Alarm = require('./subModels/alarm').schema
-const OnTime = require('./subModels/onTime').schema
+// const goalSchema = require('./subModels/goal').schema
+// const Alarm = require('./subModels/alarm').schema
+// const OnTime = require('./subModels/onTime').schema
 
 const todoSchema = new mongoose.Schema( { 
 	title: {
-		type: String, 
-		required: true
+		type: String 
+		// ,required: true
 	}, 
 	onDate: {
 		// type: Date,
